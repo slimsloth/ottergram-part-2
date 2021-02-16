@@ -1,4 +1,4 @@
-@font-face{
+@font-face {
     font-family: 'lakeshore';
     src: url('fonts/LAKESHOR-webfont.eot');
     src: url('fonts/LAKESHOR-webfont.eot?#iefix') format('embedded-opentype'),
@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-@font-face{
+@font-face {
     font-family: 'airstreamregular';
     src: url('fonts/Airstream-webfont.eot');
     src: url('fonts/Airstream-webfont.eot?#iefix') format('embedded-opentype'),
@@ -19,59 +19,74 @@
     font-weight: normal;
     font-style: normal;
 }
-html, body{
+
+html,
+body {
     height: 100%;
 }
+
 body {
     display: flex;
     flex-direction: column;
     font-size: 10px;
-    background: rgb(149,194,215);
-   }
-a{
+    background: rgb(149, 194, 215);
+}
+
+a {
     text-decoration: none;
 }
+
 .main-header {
     flex: 0 1 auto;
 }
-.logo-text{
-    display:block;
+
+.logo-text {
+    display: block;
     background: white;
     text-align: center;
     text-transform: uppercase;
     font-family: lakeshore;
     font-size: 37px;
 }
+
 .main-content {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
 }
-.thumbnail-item{
+
+.thumbnail-item {
     display: inline-block;
     min-width: 120px;
     max-width: 120px;
     border: 1px solid rgb(100%, 100%, 100%);
-    border: 1px solid rgba(100%,100%,100%,0.8);
+    border: 1px solid rgba(100%, 100%, 100%, 0.8);
 
+    transition: transform 133ms ease-in-out;
 }
+
+.thumbnail-item:hover {
+    transform: scale(1.2);
+}
+
 .thumbnail-image {
     display: block;
-    
+    flex: 1 0 auto;
     width: 100%;
 }
 
-.thumbnail-list{
+.thumbnail-list {
     order: 2;
     flex: 0 1 auto;
     display: flex;
     justify-content: space-between;
     list-style: none;
-    padding: 0;
+    padding: 20px 0;
 
     white-space: nowrap;
     overflow-x: auto;
 }
+
 .thumbnail-title {
     display: block;
     margin: 0;
@@ -79,28 +94,96 @@ a{
     background: rgb(96, 125, 139);
     color: rgb(202, 238, 255);
     font-size: 18px;
-   }
+}
+
 .detail-image-container {
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .detail-image-frame {
+    position: relative;
     text-align: center;
+    margin-left: 3%;
+    margin-right: 3%;
+    transition: transform 333ms cubic-bezier(1, .06, .28, 1);
 }
-.detail-image{
+
+.is-tiny {
+    transform: scale(0.001);
+    transition: transform 0ms;
+}
+
+.detail-image {
     width: 100%;
     height: 100%;
-    max-width: 1080px;
-    max-height: 1920px;
+    max-width: 800px;
+    max-height: 533px;
 }
+
 .detail-image-title {
     display: flex;
     justify-content: center;
     font-family: airstreamregular;
     color: white;
-    text-shadow: rgba(0,0,0,0.9) 1px 2px 9px;
+    text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
     font-size: 40px;
 }
-   
+
+.hidden-detail .detail-image-container {
+    display: none;
+}
+
+.hidden-detail .thumbnail-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+    max-width: 80%;
+}
+
+@media all and (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    .thumbnail-list {
+        flex-direction: column;
+        order: 0;
+        margin-left: 20px;
+
+        padding: 0 35px;
+    }
+
+    .thumbnail-item {
+        max-width: 260px;
+    }
+
+    .thumbnail-item+.thumbnail-item {
+        margin-top: 20px;
+    }
+}
+
+.button {
+    background-color: #008CBA;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.button:hover {
+    background-color: white;
+    color: #008CBA;
+}
